@@ -61,29 +61,18 @@ void freeTable(int **table, int n) {
 }
 
 double getMean(const int *arr, int size) {
-  //TODO: implement
-}
-
-int getMin(const int *arr, int size) {
-  //TODO: implement
-}
-
-int getIndexOfMin(const int *arr, int size) {
-  //TODO: implement
-}
-
-int getMax(const int *arr, int size) {
-  //TODO: implement
-}
-
-int getIndexOfMax(const int *arr, int size) {
-  //TODO: implement
-}
-
-int * filterThreshold(const int *arr, int size, int threshold, int *resultSize) {
-  //TODO: implement
-}
-
-int **createMultiplicationTable(int n, int m) {
-  //TODO: implement
-}
+   // check the array address 
+  if(arr == NULL){
+    printf("Invalide address or no address of array\n");
+    return -1;
+  }
+  // check the size because we cannot find the mean of 1 element
+  if(size == 0){
+    printf("Invalide Size..\n");
+    return -1;
+     }
+  double sum = 0.0;
+  for(int i = 0; i<size; i++){
+    sum += arr[i];
+  }
+  return sum/size;
