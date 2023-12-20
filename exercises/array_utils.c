@@ -145,4 +145,10 @@ int * filterThreshold(const int *arr, int size, int threshold, int *resultSize) 
     // we will return the whole array/pointer to main
   return filterArray;
 }
-
+// create Multipliction table for 2D array
+int **createMultiplicationTable(int n, int m) {
+  // check Validity
+  if(n == 0 || m == 0){
+    printf("Invalide inpute...\n");
+    return NULL;
+  }
