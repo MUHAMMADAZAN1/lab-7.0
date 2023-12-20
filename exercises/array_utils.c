@@ -99,3 +99,50 @@ int getMin(const int *arr, int size) {
 // Function to find index of Minimum number index 
 int getIndexOfMin(const int *arr, int size) {
   // check array validity
+   if(arr == NULL){
+    printf("Invalide array or No Address...\n");
+    return -1;
+     }
+  int min = arr[0];
+  int minIndex = 0;
+  for(int i = 0; i<size; i++){
+    if(arr[i] < min){
+      min = arr[i];
+      minIndex = i;
+      
+    }
+  }
+  return minIndex;
+}
+// the function filter the number from array according the condition 
+// The function as not a normal function because it return the pointer / Address of dynamic array/pointer
+int * filterThreshold(const int *arr, int size, int threshold, int *resultSize) {
+   // check validity
+  if(arr == NULL || resultSize == NULL){
+    printf("Invalide array....");
+    return NULL; }
+  // variable count to store the increment value for the size of thresholdResult array/pointer;
+  int count = 0;
+  for(int i = 0; i<size; i++){
+    // condition which filter size for filterArray array
+    if(arr[i] >= threshold){
+      count++;
+    }
+  }
+   // The dynamic memory allocation for FilterArray 
+  int *filterArray = (int *)malloc(count * sizeof(int));
+  // index variable use to increment the dynamic array index/slot
+  int index = 0;
+  for(int i = 0; i<size; i++){
+    // Threshold as a boundry the value which equal or greater from threshold will filter from array in store in the 
+    // dynamic filterArray
+    if(arr[i]>=threshold){
+       filterArray[index++] = arr[i];
+    }
+    *resultSize = count;
+
+  }
+    // we will return the whole array/pointer to main
+  return filterArray;
+}
+
